@@ -13,8 +13,19 @@ public class MovingResultSetPointer {
         String password = "hr" ;
 
         Connection conn = DriverManager.getConnection(connectionStr,username,password) ;
-        Statement stmnt = conn.createStatement();
-        ResultSet rs   =   stmnt.executeQuery("SELECT * FROM REGIONS") ;
+        // this way of creating statement will give you ability to generate
+        // ResultSet that can move forward and backward anytime
+        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+
+        ResultSet rs   =   stmt.executeQuery("SELECT * FROM REGIONS") ;
+
+        while(rs.next() ){
+            System.out.println("REGION_NAME " + rs.getString("REGION_NAME") );
+        }
+
+        rs.previous() ;
+        System.out.println("REGION_NAME " + rs.getString("REGION_NAME") );
+
 
 
     }
