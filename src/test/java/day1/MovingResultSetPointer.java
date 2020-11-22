@@ -23,8 +23,11 @@ public class MovingResultSetPointer {
             System.out.println("REGION_NAME " + rs.getString("REGION_NAME") );
         }
 
-        rs.previous() ;
-        System.out.println("REGION_NAME " + rs.getString("REGION_NAME") );
+//        rs.previous() ;
+//        System.out.println("REGION_NAME " + rs.getString("REGION_NAME") );
+        while(rs.previous() ){
+            System.out.println("BACKWARD - REGION_NAME " + rs.getString("REGION_NAME") );
+        }
 
 
 
