@@ -39,9 +39,9 @@ public class MovingResultSetPointer {
         rs.absolute(3) ; // move to specific row
 
         // how to find out which row the pointer is at right now
+        rs.last();
         int currentRowNum = rs.getRow() ;
-
-
+        System.out.println("Row Count  = " + currentRowNum);
 
 
     }
