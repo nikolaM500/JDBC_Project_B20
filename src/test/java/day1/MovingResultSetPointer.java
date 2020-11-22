@@ -34,12 +34,16 @@ public class MovingResultSetPointer {
          */
         rs.beforeFirst(); // before first location
         rs.first() ;  // first row
+        System.out.println("First Row " + rs.getString(2) ) ;
         rs.last() ; // last row
+        System.out.println("Last Row " + rs.getString(2) ) ;
         rs.afterLast(); // after last location
         rs.absolute(3) ; // move to specific row
+        System.out.println("Third Row " + rs.getString(2) ) ;
 
         // how to find out which row the pointer is at right now
         rs.last();
+        System.out.println("NOW WE HAVE MOVED TO LAST ROW ");
         int currentRowNum = rs.getRow() ;
         System.out.println("Row Count  = " + currentRowNum);
 
