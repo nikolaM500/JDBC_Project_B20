@@ -7,6 +7,7 @@ public class TestConnection {
     public static void main(String[] args) throws SQLException {
 
         // REPLACE THIS IP ADDRESS WITH YOUR OWN THAT WORKING IN SQL DEVELOPER
+        // Make sure do not delete @ in front of it
         String connectionStr = "jdbc:oracle:thin:@123.123.123.123:1521:XE";
         String username = "hr" ;
         String password = "hr" ;
