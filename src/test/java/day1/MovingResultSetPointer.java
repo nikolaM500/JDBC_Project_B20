@@ -29,6 +29,19 @@ public class MovingResultSetPointer {
             System.out.println("BACKWARD - REGION_NAME " + rs.getString("REGION_NAME") );
         }
 
+        /**
+         * Other ResultSet methods for moving your pointer to specific locations
+         */
+        rs.beforeFirst(); // before first location
+        rs.first() ;  // first row
+        rs.last() ; // last row
+        rs.afterLast(); // after last location
+        rs.absolute(3) ; // move to specific row
+
+        // how to find out which row the pointer is at right now
+        int currentRowNum = rs.getRow() ;
+
+
 
 
     }
