@@ -43,6 +43,9 @@ public class DisplayingAllDataFromAllColumns {
             System.out.println();
         }
 
+        rs.close();
+        stmnt.close();
+        conn.close();
 
     }
 
