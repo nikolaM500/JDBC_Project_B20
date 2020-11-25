@@ -32,6 +32,21 @@ public class Review {
         System.out.println("First column value in Jobs in 2nd row from last  " + rs.getString(1)  );
         System.out.println("Second column value in Jobs in 2nd row from last  " + rs.getString(2)  );
 
+        System.out.println("\n---------Loop from first row till last row print JOB_ID-------");
+        rs.beforeFirst();
+
+        while( rs.next() ){
+            System.out.println("Loop First Column " + rs.getString("JOB_ID") );
+        }
+
+        System.out.println("\n---------Loop from last row till first row get MIN_SALARY COLUMN AS NUMBER-------");
+        // WE ARE CURRENTLY AT AFTER LAST LOCATION
+        // if you really want to make sure and explicitly say so
+        // we can do below
+        rs.afterLast();
+        while(rs.previous() ){
+            System.out.println("MIN SALARY COLUMN AS NUMBER  $" + rs.getDouble("MIN_SALARY")    );
+        }
 
 
 
