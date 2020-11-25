@@ -28,6 +28,9 @@ public class Review {
         System.out.println("First column value in Jobs in last row " + rs.getString(1)  );
         System.out.println("Second column value in Jobs in last row " + rs.getString(2)  );
 
+        rs.previous();
+        System.out.println("First column value in Jobs in 2nd row from last  " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in 2nd row from last  " + rs.getString(2)  );
 
 
 
