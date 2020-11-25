@@ -45,6 +45,7 @@ public class Review {
         // we can do below
         rs.afterLast();
         while(rs.previous() ){
+            // NOTHING WRONG WITH GETTING IT AS STRING , JUST FOR THE SAKE OF DEMO , WE ARE GETTING AS DOUBLE
             System.out.println("MIN SALARY COLUMN AS NUMBER  $" + rs.getDouble("MIN_SALARY")    );
         }
 
