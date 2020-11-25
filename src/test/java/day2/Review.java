@@ -19,6 +19,15 @@ public class Review {
         System.out.println("First column value in Jobs " + rs.getString(1)  );
         System.out.println("Second column value in Jobs " + rs.getString(2)  );
 
+        // move to row number 7 and get above 2 columns values
+        rs.absolute(7) ;
+        System.out.println("First column value in Jobs in row 7 " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in row 7 " + rs.getString(2)  );
+
+        rs.last() ;
+        System.out.println("First column value in Jobs in row 7 " + rs.getString(1)  );
+        System.out.println("Second column value in Jobs in row 7 " + rs.getString(2)  );
+
 
 
 
