@@ -5,6 +5,8 @@ import java.sql.*;
 public class DB_Utility {
 
     static Connection conn ; // make it static field so we can reuse in every methods we write
+    static Statement stmnt ;
+    static ResultSet rs ;
 
     public static void createConnection(){
 
@@ -24,7 +26,7 @@ public class DB_Utility {
     // and return ResultSet Object
     public static ResultSet runQuery(String query){
 
-        ResultSet rs  = null;
+//        ResultSet rs  = null;
         // reusing the connection built from previous method
         try {
             Statement stmnt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -37,6 +39,23 @@ public class DB_Utility {
         return rs ;
 
     }
+    // create a method to clean up all the connection statemnet and resultset
+    public static void destroy(){
+
+        try {
+
+            rs.close();
+            stmnt.close();
+            conn.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
+
+
 
     public static void main(String[] args) throws SQLException {
 
