@@ -1,11 +1,10 @@
 package utility;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DB_Utility {
 
+    static Connection conn ; // make it static field so we can reuse in every methods we write
 
     public static void createConnection(){
 
@@ -14,17 +13,41 @@ public class DB_Utility {
         String password = "hr" ;
 
         try {
-            Connection conn = DriverManager.getConnection(connectionStr,username,password) ;
+            conn = DriverManager.getConnection(connectionStr,username,password) ;
             System.out.println("CONNECTION SUCCESSFUL !! ");
         } catch (SQLException e) {
             System.out.println("CONNECTION HAS FAILED !!! " +  e.getMessage() );
         }
 
     }
+    // Create a method called runQuery that accept a SQL Query
+    // and return ResultSet Object
+    public static ResultSet runQuery(String query){
 
-    public static void main(String[] args) {
+        ResultSet rs  = null;
+        // reusing the connection built from previous method
+        try {
+            Statement stmnt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = stmnt.executeQuery(query) ;
+
+        } catch (SQLException e) {
+            System.out.println("Error while getting resultset " + e.getMessage());
+        }
+
+        return rs ;
+
+    }
+
+    public static void main(String[] args) throws SQLException {
 
         createConnection();
+
+        ResultSet rs =  runQuery("SELECT * FROM REGIONS");
+
+        // print out second column first row
+        rs.next();
+        System.out.println(" rs.getString(2) = " + rs.getString(2)   );
+
 
     }
 
