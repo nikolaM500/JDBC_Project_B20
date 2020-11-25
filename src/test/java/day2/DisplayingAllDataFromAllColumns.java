@@ -23,13 +23,13 @@ public class DisplayingAllDataFromAllColumns {
         for (int colNum = 1; colNum <= columnCount; colNum++) {
             System.out.print( rsmd.getColumnLabel(colNum) + "\t"  );
         }
-        System.out.println("----------------------------");
+        System.out.println("\n----------------------------");
         rs.next() ;
 
-        // this whole loop is getting one row of data
-        for (int colNum = 1; colNum <= columnCount; colNum++) {
-            System.out.print(rs.getString( colNum ) + "\t" );
-        }
+//        // this whole loop is getting one row of data
+//        for (int colNum = 1; colNum <= columnCount; colNum++) {
+//            System.out.print(rs.getString( colNum ) + "\t" );
+//        }
 
         // now how do you get all the row if you know how to get one row ???
         // I want to go from the first row till the last row and print all columns
